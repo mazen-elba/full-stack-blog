@@ -15,7 +15,8 @@ const PORT = process.env.PORT || 8080;
 
 // STEP 2 -------------------------------------------------------
 // MongoDB Connector - make server connection
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/blog_post", {
+mongoose.connect(process.env.MONGODB_URI, {
+  //"mongodb://localhost/blog_post"
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
