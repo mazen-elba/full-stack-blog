@@ -10,10 +10,12 @@ class App extends React.Component {
     posts: [],
   };
 
+  // Call getBlogPost() whenever component (page) mounts
   componentDidMount = () => {
     this.getBlogPost();
   };
 
+  // Fetch Data from MongoDB -> display in client
   getBlogPost = () => {
     axios
       .get("/api")
@@ -32,14 +34,16 @@ class App extends React.Component {
     this.setState({ [name]: value });
   };
 
+  // Save Posts
   submit = (event) => {
-    event.preventDefault();
+    event.preventDefault(); // stops browser from refreshing
 
     const payload = {
       title: this.state.title,
       body: this.state.body,
     };
 
+    // Send HTTP Post Request
     axios({
       url: "/api/save",
       method: "POST",
@@ -55,6 +59,7 @@ class App extends React.Component {
       });
   };
 
+  // Reset Form (after submit)
   resetUserInputs = () => {
     this.setState({
       title: "",
@@ -62,6 +67,7 @@ class App extends React.Component {
     });
   };
 
+  // Display Data (submitted form) - into page
   displayBlogPost = (posts) => {
     if (!posts.length) return null;
 
@@ -79,7 +85,7 @@ class App extends React.Component {
     //JSX
     return (
       <div className="app">
-        <h2>Welcome to the best app ever</h2>
+        <h2>Welcome to My Full Stack Development Blog</h2>
         <form onSubmit={this.submit}>
           <div className="form-input">
             <input
@@ -104,7 +110,9 @@ class App extends React.Component {
           <button>Submit</button>
         </form>
 
-        <div className="blog-">{this.displayBlogPost(this.state.posts)}</div>
+        <div className="blog-post">
+          {this.displayBlogPost(this.state.posts)}
+        </div>
       </div>
     );
   }

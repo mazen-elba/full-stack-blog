@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 // Import npm packages
 const express = require("express");
 const mongoose = require("mongoose"); // object data model
@@ -13,7 +15,7 @@ const PORT = process.env.PORT || 8080;
 
 // STEP 2 -------------------------------------------------------
 // MongoDB Connector - make server connection
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/blog", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/blog_post", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -29,7 +31,7 @@ app.use(express.urlencoded({ extended: false }));
 
 // Heroku Custom Variable
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build")); // put client/build directory into server
+  app.use(express.static("client/build")); // import client/build directory into server
 }
 
 // STEP 3 -------------------------------------------------------
