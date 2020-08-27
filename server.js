@@ -8,9 +8,6 @@ const PORT = process.env.PORT || 8080;
 
 const routes = require("./routes/api");
 
-// MongoDB Atlas Database-Network Connection
-// const MONGODB_URI = "mongodb+srv://WheatRidge-18:WheatRidge-18@blog.en8nc.mongodb.net/<dbname>?retryWrites=true&w=majority";
-
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/blog", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
