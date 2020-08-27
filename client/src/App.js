@@ -79,7 +79,7 @@ class App extends React.Component {
     //JSX
     return (
       <div className="app">
-        <h2>Welcome to my Full Stack Development Blog</h2>
+        <h2>Welcome to the best app ever</h2>
         <form onSubmit={this.submit}>
           <div className="form-input">
             <input
@@ -92,7 +92,7 @@ class App extends React.Component {
           </div>
           <div className="form-input">
             <textarea
-              placeholder="body"
+              placeholder="Body"
               name="body"
               cols="30"
               rows="10"
