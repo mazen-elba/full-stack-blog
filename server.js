@@ -15,8 +15,8 @@ const PORT = process.env.PORT || 8080;
 
 // STEP 2 -------------------------------------------------------
 // MongoDB Connector - make server connection
-mongoose.connect(process.env.MONGODB_URI, {
-  //"mongodb://localhost/blog_post"
+// use "process.env.MONGODB_URI" for MongoDB Atlas (non-local MongoDB installation)
+mongoose.connect("mongodb://localhost/blog_post", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
